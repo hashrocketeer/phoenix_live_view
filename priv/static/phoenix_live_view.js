@@ -650,9 +650,7 @@ var LiveView = (() => {
       }
     },
     mergeFocusedInput(target, source) {
-      if (!(target instanceof HTMLSelectElement)) {
-        DOM.mergeAttrs(target, source, { exclude: ["value"] });
-      }
+      DOM.mergeAttrs(target, source, { exclude: ["value"] });
       if (source.readOnly) {
         target.setAttribute("readonly", true);
       } else {
@@ -1590,7 +1588,7 @@ removing illegal node: "${(childNode.outerHTML || childNode.nodeValue).trim()}"
         }
       }
       function morphChildren(fromEl, toEl) {
-        var skipFrom = skipFromChildren(fromEl, toEl);
+        var skipFrom = skipFromChildren(fromEl);
         var curToNodeChild = toEl.firstChild;
         var curFromNodeChild = fromEl.firstChild;
         var curToNodeKey;
